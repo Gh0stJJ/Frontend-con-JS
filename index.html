@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masterdots game</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
 </head>
 <body>
     <!-- Cabecera-->
     <header>
-        <div class="logo">
-            <img src="Images/logo.png" alt="Masterdots game">
-        </div>
+        
+        <img src="Images/logo.png" alt="Masterdots game" height="100">
+        
     </header>
     <!-- Fin cabecera-->
     <!-- Formulario Usuario-->
@@ -20,6 +26,7 @@
         <form action="#">
             <div class="itemform">
                 <label for="nick">Introduce un nombre:</label>
+                <input type="text" id="nicka" name="nick" value="@" readonly>
                 <input type="text" id="nick" name="nick" required>
             </div>
             <div class="itemform">
@@ -46,9 +53,9 @@
 
     <!-- Pie de página-->
     <footer>
-        <div class="footer">
-            <p>Masterdots game</p>
-        </div>
+        
+        <p>Masterdots game</p>
+        
     </footer>
     <!-- Fin pie de página-->
 
