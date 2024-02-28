@@ -9,7 +9,7 @@ header, footer{
     text-align: center;
     width: 400px;
     /* Se incluye el auto para centrar el contenido automaticamente */
-    margin: 30px auto 0px auto;
+    margin: 30px auto 0px auto; /* Se aplica un margen de 30px arriba y 0px abajo */
     
 }
 
@@ -43,6 +43,7 @@ input{
     border-radius: 0px 5px 5px 0px; /* Hace que el borde sea redondeado solo en la esquina derecha */
     font-size: 18px;
     font-weight: 200;
+   
 
 }
 
@@ -81,4 +82,11 @@ select{
     font-size: 18px;
 }
 
+#nick{
+    width: 336px;
+}
 
+#email{
+    width: 378px;
+    border-radius: 5px; /* Hace que el borde sea redondeado en todas las esquinas */
+}
