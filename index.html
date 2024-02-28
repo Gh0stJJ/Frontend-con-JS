@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masterdots game</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/reset.css">
 </head>
 <body>
+    <!-- Cabecera-->
+    <header>
+        <div class="logo">
+            <img src="Images/logo.png" alt="Masterdots game">
+        </div>
+    </header>
+    <!-- Fin cabecera-->
+    <!-- Formulario Usuario-->
+    <main>
+        <form action="#">
+            <div class="itemform">
+                <label for="nick">Introduce un nombre:</label>
+                <input type="text" id="nick" name="nick" required>
+            </div>
+            <div class="itemform">
+                <label for="size">Tamaño del juego:</label>
+                <select name="size" id="size">
+                    <option value="">Selecciona un tamaño</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="8">8x8</option>
+                    <option value="9">9x9</option>
+                    <option value="10">10x10</option>
+                </select>
+            </div>
+            <div class="itemform">
+                <input type="submit" value="Jugar">
+                
+            </div>
+
+        </form>
+
+    </main>
+    <!-- Fin formulario Usuario-->
+
+    <!-- Pie de página-->
+    <footer>
+        <div class="footer">
+            <p>Masterdots game</p>
+        </div>
+    </footer>
+    <!-- Fin pie de página-->
+
+    
     
 </body>
 </html>
