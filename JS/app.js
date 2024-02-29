@@ -25,7 +25,15 @@ function comprobarForm(e){
         e.preventDefault(); //Evita que se envie el formulario
         error.innerText = 'No se ha seleccionado un tamaño de tablero';
         return false;
+    }else if(nickInput.value.match(/(?<!\S)[0-9]/)){
+        console.log('El nick no puede comenzar con numeros');
+        nickInput.focus();
+        e.preventDefault(); //Evita que se envie el formulario
+        error.innerText = 'El nick no puede comenzar con numeros';
+        return false;
     }
+
+
     return true;
 }
 
