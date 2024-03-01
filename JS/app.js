@@ -1,5 +1,7 @@
 /*
-    JS Para la comprobación de los datos del formulario
+*    JS Para la comprobación de los datos del formulario
+*   @autor: Juanja
+*   @version: 1.0
 */
 
 

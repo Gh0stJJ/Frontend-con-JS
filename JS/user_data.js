@@ -7,6 +7,12 @@ var email;
 var size;
 var geolocationtxt;
 
+/**
+ * 
+ * @param {HTMLElement} nick nombre de usuario
+ * @param {HTMLElement} email correo electrónico
+ * @param {HTMLElement} size tamaño del tablero
+ */
 function setuserData(nick, email, size) {
     sessionStorage.setItem('nick', nick.value);
     sessionStorage.setItem('email', email.value);
