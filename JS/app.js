@@ -6,17 +6,13 @@
 
 
 //Inicializacion de var, objetos, DOM
-const nickInput = document.getElementById('nick');
-const sizeInput = document.getElementById('size');
-const emailInput = document.getElementById('email');
-const formEntrada = document.getElementById('formEntrada');
-const error = document.getElementById('error');
+var nickInput;
+var sizeInput;
+var emailInput;
+var formEntrada;
+var error;
 
-//Comprobamos si el hay algun error en el sessionStorage
-if(sessionStorage.getItem('error')!=null){
-    error.innerText = sessionStorage.getItem('error');
-    sessionStorage.removeItem('error');
-}
+
 
 //Funciones de eventos
 function comprobarForm(e){
@@ -43,14 +39,36 @@ function comprobarForm(e){
     //Guardamos el nick en el sessionStorage
     setuserData(nickInput, sizeInput, emailInput);
 
-    
-
-
     return true;
 }
 
-//Inicio de carga de eventos
-formEntrada.addEventListener('submit', comprobarForm);
+
+
+/**
+ * Carga de objetos del DOM, comprobaciones y eventos del formulario
+ */
+function domReady(){
+    //Captura de todos los elements necesarios
+    nickInput = document.getElementById('nick');
+    sizeInput = document.getElementById('size');
+    emailInput = document.getElementById('email');
+    formEntrada = document.getElementById('formEntrada');
+    error = document.getElementById('error');
+    //Comprobamos si el hay algun error en el sessionStorage una vez cargado el DOM
+    if(sessionStorage.getItem('error')!=null){
+        error.innerText = sessionStorage.getItem('error');
+        sessionStorage.removeItem('error');
+    }
+    //Inicio de carga de eventos
+    formEntrada.addEventListener('submit', comprobarForm);
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded',domReady)
+
+
 
 //Geolocalizacion
 geolocalationData();
