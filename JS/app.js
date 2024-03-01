@@ -40,6 +40,8 @@ function comprobarForm(e){
     //Guardamos el nick en el sessionStorage
     setuserData(nickInput);
 
+    
+
 
     return true;
 }
