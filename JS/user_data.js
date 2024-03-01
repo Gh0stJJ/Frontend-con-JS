@@ -3,13 +3,22 @@
 */
 
 var nick;
+var email;
+var size;
+var geolocationtxt;
 
-function setuserData(nick) {
+function setuserData(nick, email, size) {
     sessionStorage.setItem('nick', nick.value);
+    sessionStorage.setItem('email', email.value);
+    sessionStorage.setItem('size', size.value);
+    sessionStorage.setItem('geolocation', geolocationtxt);
+
 }
 
 function getuserData() {
     nick = sessionStorage.getItem('nick');
+    size = sessionStorage.getItem('size');
+    email = sessionStorage.getItem('email');
     console.log(nick);
     return nick;
 }
@@ -21,6 +30,25 @@ function checkuserData() {
         //Mensaje de error
         sessionStorage.setItem('error', 'No se ha rellenado el formulario de inicio de sesión. Por favor, rellene el formulario para poder jugar.');
         return false;
+    }
+}
+
+//API de geolocalización
+function geolocalationData() {
+    if(!navigator.geolocation){
+        //Mensaje de error
+       geolocationtxt = "La geolocalización no está disponible en tu navegador";
+        return false;
+    }else{
+        navigator.geolocation.getCurrentPosition(
+            //Si se ha obtenido la posición
+            (position) => {
+                geolocationtxt = "Latitud: " + position.coords.latitude + " Longitud: " + position.coords.longitude;
+            },
+            //Si NO se ha obtenido la posición
+            () => { geolocationtxt = "No se ha podido obtener la geolocalización";}
+
+        )
     }
 }
 

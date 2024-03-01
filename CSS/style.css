@@ -47,6 +47,13 @@ input{
 
 }
 
+p{
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(71, 71, 66);
+    
+}
+
 input[type="submit"]{
     
     background-color: #d6450c;

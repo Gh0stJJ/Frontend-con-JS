@@ -6,6 +6,7 @@
 //Inicializacion de var, objetos, DOM
 const nickInput = document.getElementById('nick');
 const sizeInput = document.getElementById('size');
+const emailInput = document.getElementById('email');
 const formEntrada = document.getElementById('formEntrada');
 const error = document.getElementById('error');
 
@@ -38,7 +39,7 @@ function comprobarForm(e){
     }
 
     //Guardamos el nick en el sessionStorage
-    setuserData(nickInput);
+    setuserData(nickInput, sizeInput, emailInput);
 
     
 
@@ -49,4 +50,6 @@ function comprobarForm(e){
 //Inicio de carga de eventos
 formEntrada.addEventListener('submit', comprobarForm);
 
+//Geolocalizacion
+geolocalationData();
 
