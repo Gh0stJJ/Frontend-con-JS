@@ -9,7 +9,11 @@ const sizeInput = document.getElementById('size');
 const formEntrada = document.getElementById('formEntrada');
 const error = document.getElementById('error');
 
-
+//Comprobamos si el hay algun error en el sessionStorage
+if(sessionStorage.getItem('error')!=null){
+    error.innerText = sessionStorage.getItem('error');
+    sessionStorage.removeItem('error');
+}
 
 //Funciones de eventos
 function comprobarForm(e){
