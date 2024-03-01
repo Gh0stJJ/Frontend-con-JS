@@ -33,6 +33,9 @@ function comprobarForm(e){
         return false;
     }
 
+    //Guardamos el nick en el sessionStorage
+    setuserData(nickInput);
+
 
     return true;
 }
