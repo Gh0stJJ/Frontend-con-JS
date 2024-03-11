@@ -11,6 +11,9 @@ var sizeInput;
 var emailInput;
 var formEntrada;
 var error;
+var avatarItems;
+var itemImg;
+var avartarContainer;
 
 
 
@@ -43,6 +46,15 @@ function comprobarForm(e){
 }
 
 
+function moviendoImg(e){
+    itemImg = e.target;
+    console.log(itemImg.src);
+}
+
+function cambiarAvatar(e){
+    avartarContainer.src = itemImg.src;
+}
+
 
 /**
  * Carga de objetos del DOM, comprobaciones y eventos del formulario
@@ -61,6 +73,21 @@ function domReady(){
     }
     //Inicio de carga de eventos
     formEntrada.addEventListener('submit', comprobarForm);
+
+    //Guarda los elementos de los avatares en una lista
+    avatarItems = document.getElementsByClassName('avatarImgItem');
+    //Elementos del drag and drop
+    for(let item of avatarItems){
+        item.addEventListener('dragstart',moviendoImg);
+
+    }
+
+    //Elemento donde se suelta la imagen
+    avartarContainer = document.getElementById('avatarBig');
+    //Evento para evitar que se ejecute el evento por defecto
+    avartarContainer.addEventListener('dragover', e=> {e.preventDefault()});
+    //Evento para soltar la imagen
+    avartarContainer.addEventListener('drop', cambiarAvatar);
 
 }
 

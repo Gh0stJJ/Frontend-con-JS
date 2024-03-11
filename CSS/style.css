@@ -77,6 +77,17 @@ select{
     font-weight: 200; /* Hace que el texto sea mas delgado */
     
 }
+/* Clases */
+
+.avatarItem{
+    background-color: white;
+    border: 1px solid #e74504;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
 
 /* IDs */
 #nicka{
@@ -106,3 +117,31 @@ select{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#avatarSelector{
+    float: left; /* Hace que el elemento se alinee a la izquierda */
+    padding-left: 60px;
+}
+
+#avatarContainer{
+    display:flex;
+    background-color: white;
+    border: 1px solid #e74504;
+    border-radius: 5px;
+    width: 125px;
+    height: 125px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#avatargrid{
+    display: flex;
+    justify-content:center; /*justifica el contenido al centro */
+    align-items: center; /* Alinea los elementos en el centro */
+    flex-wrap: wrap; /* Flex-wrap hace que los elementos se alineen en column cuando no hay espacio */
+    gap: 5px;
+    margin-top: 10px;
+    padding-right: 50px;
+}
+
