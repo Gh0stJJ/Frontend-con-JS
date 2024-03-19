@@ -35,7 +35,7 @@ function paintGamePanel(){
 
     for (let i = 0; i < size*size; i++) {
         let randColor = Math.floor(Math.random() * 6) + 1;
-        items += '<div class="containerItem"><div class="item '+colors[randColor]+'"></div></div>';
+        items += '<div class="containerItem" draggable="false"><div class="item '+colors[randColor]+'" draggable="false"></div></div>';
         document.getElementById('juego').innerHTML = items;
     }
 }
@@ -61,7 +61,6 @@ function marcarItem(e){
 function selectItem(item){
     let containerItem = item.parentElement
     //Añadimos la clase marcado al item padre
-    console.log(item.classList);
     containerItem.classList.add(item.classList[1]);
     if(!iniciadoMarcado){
         iniciadoMarcado = true;
@@ -77,9 +76,23 @@ function selectItem(item){
 function continuarMarcado(e){
     
     if (iniciadoMarcado){
+        console.log('Marcado continuado', iniciadoMarcado);
         let hijo = e.target;
         selectItem(hijo);
     }
+
+}
+
+/**
+ * Finalizar marcando items
+ * @param {*} e 
+ */
+function finalizarMarcado(e){
+    
+    if (iniciadoMarcado){
+        iniciadoMarcado = false;
+    }
+    console.log('Marcado finalizado', iniciadoMarcado);
 
 }
 
@@ -91,8 +104,10 @@ function gameEvents(){
     for (let item of items) {
         item.addEventListener('mousedown', marcarItem);
         item.addEventListener('mouseover', continuarMarcado);
-
     }
+    //Evento para dejar de marcar (Se lo vincula a todo el documento)
+    document.addEventListener('mouseup', finalizarMarcado);
+
 }
 
 /*
