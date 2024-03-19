@@ -5,6 +5,7 @@
 var nick;
 var email;
 var size;
+var avatarImg;
 var geolocationtxt;
 
 /**
@@ -12,20 +13,23 @@ var geolocationtxt;
  * @param {HTMLElement} nick nombre de usuario
  * @param {HTMLElement} email correo electrónico
  * @param {HTMLElement} size tamaño del tablero
+ * @param {HTMLElement} avatarData imagen de avatar
  */
-function setuserData(nick, email, size) {
+function setuserData(nick, email, size, avatarData) {
     sessionStorage.setItem('nick', nick.value);
     sessionStorage.setItem('email', email.value);
     sessionStorage.setItem('size', size.value);
     sessionStorage.setItem('geolocation', geolocationtxt);
+    sessionStorage.setItem('avatarImg', avatarData.src);
 
 }
 
 function getuserData() {
     nick = sessionStorage.getItem('nick');
-    size = sessionStorage.getItem('size');
+    size = parseInt(sessionStorage.getItem('size'));
     email = sessionStorage.getItem('email');
-    console.log(nick);
+    avatarImg = sessionStorage.getItem('avatarImg');
+
     return nick;
 }
 

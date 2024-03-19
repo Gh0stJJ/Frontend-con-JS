@@ -40,7 +40,7 @@ function comprobarForm(e){
     }
 
     //Guardamos el nick en el sessionStorage
-    setuserData(nickInput, sizeInput, emailInput);
+    setuserData(nickInput, emailInput, sizeInput, avartarContainer);
 
     return true;
 }
