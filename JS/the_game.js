@@ -37,6 +37,30 @@ function paintGamePanel(){
 }
 
 
+//Funciones del juego
+/**
+ * Iniciar el marcado de los items
+ * @param {*} e 
+ */
+function marcarItem(e){
+    let hijo = e.target;
+    let containerItem = e.target.parentElement
+    //Añadimos la clase marcado al item padre
+    console.log(hijo.classList);
+    containerItem.classList.add(hijo.classList[1]);
+}
+
+function gameEvents(){
+    //Eventos del juego
+    const items = document.getElementsByClassName('item');
+
+    for (let item of items) {
+        item.addEventListener('mousedown', marcarItem);
+
+    }
+}
+
+
 
 
 
@@ -58,3 +82,6 @@ createGrid();
 
 //Pintar el panel de juego  
 paintGamePanel();
+
+//Eventos del juego
+gameEvents();
