@@ -23,11 +23,15 @@ function createGrid(){
 //Pintar el panel de juego
 
 function paintGamePanel(){
+    //Diccionario de colores
+    let colors = {'1':'rojo', '2':'verde', '3':'azul', '4':'amarillo', '5':'naranja', '6':'morado'};
+
     //Pintar el panel de juego
     let items = '';
 
     for (let i = 0; i < size*size; i++) {
-        items += '<div class="containerItem"><div class="item"></div></div>';
+        let randColor = Math.floor(Math.random() * 6) + 1;
+        items += '<div class="containerItem"><div class="item '+colors[randColor]+'"></div></div>';
         document.getElementById('juego').innerHTML = items;
     }
 }

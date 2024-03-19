@@ -74,14 +74,40 @@ img{
     min-width: 75px;
     min-height: 75px;
     border-radius: 5px;
-    border: 1px solid #ced4da;
 }
 .item{
     background-color: #7ac943;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 50px;
     height: 50px;
 }
+/*Colores para los items*/
+.rojo{
+    background-color: #fd0c49;
+}
+
+.azul{
+    background-color: #00b0ff;
+}
+
+.amarillo{
+    background-color: #ffeb3b;
+}
+
+.verde{
+    background-color: #7ac943;
+}
+
+.morado{
+    background-color: #9c27b0;
+}
+
+.naranja{
+    background-color: #ff9800;
+}
+
+
+
 #contenedorJuego{
     width: 500px;
     margin-right: 10px;
