@@ -2,6 +2,10 @@
     JS para la gestión del juego
 */
 
+//VARIABLES GLOBALES
+var iniciadoMarcado = false;
+
+
 function setUserData(){
     // Set the user data
     document.getElementById('nick').value = nick;
@@ -44,11 +48,41 @@ function paintGamePanel(){
  */
 function marcarItem(e){
     let hijo = e.target;
-    let containerItem = e.target.parentElement
-    //Añadimos la clase marcado al item padre
-    console.log(hijo.classList);
-    containerItem.classList.add(hijo.classList[1]);
+
+    selectItem(hijo);
+    
 }
+
+
+/**
+ * Marca los items con su color correspondiente
+ * @param {*} item 
+ */
+function selectItem(item){
+    let containerItem = item.parentElement
+    //Añadimos la clase marcado al item padre
+    console.log(item.classList);
+    containerItem.classList.add(item.classList[1]);
+    if(!iniciadoMarcado){
+        iniciadoMarcado = true;
+    }
+
+}
+
+
+/**
+ * Continuar marcando items
+ * @param {*} e 
+ */
+function continuarMarcado(e){
+    
+    if (iniciadoMarcado){
+        let hijo = e.target;
+        selectItem(hijo);
+    }
+
+}
+
 
 function gameEvents(){
     //Eventos del juego
@@ -56,9 +90,14 @@ function gameEvents(){
 
     for (let item of items) {
         item.addEventListener('mousedown', marcarItem);
+        item.addEventListener('mouseover', continuarMarcado);
 
     }
 }
+
+/*
+** MAIN
+*/
 
 
 
