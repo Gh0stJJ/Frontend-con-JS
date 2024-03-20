@@ -9,6 +9,8 @@ var colorInicial = '';
 var idMarcado = [];
 //Diccionario de colores
 const colors = ['rojo', 'verde', 'azul', 'amarillo', 'naranja', 'morado'];
+//Id del proceso de intervalo
+var idInterval;
 
 
 
@@ -198,6 +200,22 @@ function gameEvents(){
     //Evento para dejar de marcar (Se lo vincula a todo el documento)
     document.addEventListener('mouseup', finalizarMarcado);
 
+    //Contador de tiempo (Cuenta atras)
+    idInterval = setInterval(function(){
+        let tiempoInput = document.getElementById('tmpo');
+        tiempoInput.value = parseInt(tiempoInput.value) - 1;
+        if (parseInt(tiempoInput.value) == 0){
+            clearInterval(idInterval);
+            //Paramos todos los eventos latentes
+            for (let item of items) {
+                item.removeEventListener('mousedown', marcarItem);
+                item.removeEventListener('mouseover', continuarMarcado);
+            }
+            document.removeEventListener('mouseup', finalizarMarcado);
+
+        }
+    }, 1000);
+
 }
 
 /*
@@ -229,3 +247,5 @@ paintGamePanel();
 
 //Eventos del juego
 gameEvents();
+
+
