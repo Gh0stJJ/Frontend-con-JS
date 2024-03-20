@@ -5,6 +5,8 @@
 //VARIABLES GLOBALES
 var iniciadoMarcado = false;
 var adyacentes = [];
+var colorInicial = '';
+
 
 
 
@@ -90,8 +92,11 @@ function calcularAdyacentes(id){
  */
 function marcarItem(e){
     let hijo = e.target;
-
+    //Guardamos el color inicial
+    colorInicial = hijo.classList[1];
     selectItem(hijo);
+    //Comenzamos a calcular los adyacentes del primer item marcado
+    calcularAdyacentes(parseInt(hijo.id));
     
 }
 
@@ -120,10 +125,13 @@ function continuarMarcado(e){
     if (iniciadoMarcado){
         console.log('Marcado continuado', iniciadoMarcado);
         let hijo = e.target;
-        selectItem(hijo);
-
-        //Test
-        calcularAdyacentes(parseInt(hijo.id));
+        //Es adyacente ???   Tiene el mismo color inicial ???
+        if (adyacentes.includes(parseInt(hijo.id)) && hijo.classList[1] == colorInicial){
+            selectItem(hijo);
+            //Calculamos los adyacentes del nuevo item marcado
+            calcularAdyacentes(parseInt(hijo.id));
+        }
+       
     }
 
 }
