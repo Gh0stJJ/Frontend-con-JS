@@ -148,6 +148,16 @@ function finalizarMarcado(e){
     
     if (iniciadoMarcado){
         iniciadoMarcado = false;
+        adyacentes = [];
+        //Calculamos la puntuacion
+        let puntuacionInput = document.getElementById('puntuacion');
+        
+        if (idMarcado.length > 1){
+            puntuacionInput.value = parseInt(puntuacionInput.value) + idMarcado.length;
+        }
+
+
+
         //Trabajar con los marcados
         idMarcado.forEach(element => {
             //Capturamos el objeto
@@ -157,6 +167,7 @@ function finalizarMarcado(e){
             //Cambiamos el color del item de forma aleatoria
             let randColor = Math.floor(Math.random() * 6);
             //Quitamos el color inicial comprobando que el classList no contenga elementos de color
+            //Esta cosa arreglara un bug que no me gusta
             for (let color of colors){
                 if (item.classList.contains(color)){
                     item.classList.remove(color);
@@ -179,6 +190,10 @@ function gameEvents(){
     for (let item of items) {
         item.addEventListener('mousedown', marcarItem);
         item.addEventListener('mouseover', continuarMarcado);
+        //Prevenir que el item sea arrastrado
+        item.addEventListener('dragstart', function(e){
+            e.preventDefault();
+        });
     }
     //Evento para dejar de marcar (Se lo vincula a todo el documento)
     document.addEventListener('mouseup', finalizarMarcado);
