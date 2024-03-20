@@ -6,7 +6,9 @@
 var iniciadoMarcado = false;
 var adyacentes = [];
 var colorInicial = '';
-
+var idMarcado = [];
+//Diccionario de colores
+const colors = ['rojo', 'verde', 'azul', 'amarillo', 'naranja', 'morado'];
 
 
 
@@ -31,14 +33,13 @@ function createGrid(){
 //Pintar el panel de juego
 
 function paintGamePanel(){
-    //Diccionario de colores
-    let colors = {'1':'rojo', '2':'verde', '3':'azul', '4':'amarillo', '5':'naranja', '6':'morado'};
+    
 
     //Pintar el panel de juego
     let items = '';
 
     for (let i = 0; i < size*size; i++) {
-        let randColor = Math.floor(Math.random() * 6) + 1;
+        let randColor = Math.floor(Math.random() * 6);
         items += '<div class="containerItem" draggable="false"><div id='+i+' class="item '+colors[randColor]+'" draggable="false"></div></div>';
         document.getElementById('juego').innerHTML = items;
     }
@@ -80,21 +81,21 @@ function calcularAdyacentes(id){
     
 }
 
-
-
-
-
-
-
 /**
  * Iniciar el marcado de los items
  * @param {*} e 
  */
 function marcarItem(e){
+
+    idMarcado = [];
+    
     let hijo = e.target;
     //Guardamos el color inicial
     colorInicial = hijo.classList[1];
     selectItem(hijo);
+    //Guardamos el id del item marcado
+    idMarcado.push(parseInt(hijo.id));
+
     //Comenzamos a calcular los adyacentes del primer item marcado
     calcularAdyacentes(parseInt(hijo.id));
     
@@ -128,6 +129,9 @@ function continuarMarcado(e){
         //Es adyacente ???   Tiene el mismo color inicial ???
         if (adyacentes.includes(parseInt(hijo.id)) && hijo.classList[1] == colorInicial){
             selectItem(hijo);
+            
+            //Guardamos el id del item marcado
+            idMarcado.push(parseInt(hijo.id));
             //Calculamos los adyacentes del nuevo item marcado
             calcularAdyacentes(parseInt(hijo.id));
         }
@@ -144,6 +148,24 @@ function finalizarMarcado(e){
     
     if (iniciadoMarcado){
         iniciadoMarcado = false;
+        //Trabajar con los marcados
+        idMarcado.forEach(element => {
+            //Capturamos el objeto
+            let item = document.getElementById(element);
+            //Quitamos el color del padre (Rectagulo de color)
+            item.parentElement.classList.remove(colorInicial);
+            //Cambiamos el color del item de forma aleatoria
+            let randColor = Math.floor(Math.random() * 6);
+            //Quitamos el color inicial comprobando que el classList no contenga elementos de color
+            for (let color of colors){
+                if (item.classList.contains(color)){
+                    item.classList.remove(color);
+                }
+            }
+            //Añadimos el nuevo color
+            item.classList.add(colors[randColor]);
+
+        });
     }
     console.log('Marcado finalizado', iniciadoMarcado);
 
