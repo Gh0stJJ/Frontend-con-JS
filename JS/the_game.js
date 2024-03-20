@@ -4,6 +4,8 @@
 
 //VARIABLES GLOBALES
 var iniciadoMarcado = false;
+var adyacentes = [];
+
 
 
 function setUserData(){
@@ -35,13 +37,53 @@ function paintGamePanel(){
 
     for (let i = 0; i < size*size; i++) {
         let randColor = Math.floor(Math.random() * 6) + 1;
-        items += '<div class="containerItem" draggable="false"><div class="item '+colors[randColor]+'" draggable="false"></div></div>';
+        items += '<div class="containerItem" draggable="false"><div id='+i+' class="item '+colors[randColor]+'" draggable="false"></div></div>';
         document.getElementById('juego').innerHTML = items;
     }
 }
 
 
 //Funciones del juego
+
+/**
+ * Calcula el array de adyacentes
+ * @param {*} identificador
+ */
+function calcularAdyacentes(id){
+    adyacentes = [];
+    //Adyacente superior
+    if (id - size >= 0){
+        adyacentes.push(id - size); 
+    }
+
+    //Adyacente inferior
+    if (id + size < size*size){
+        adyacentes.push(id + size);
+    }
+
+    //Adyacente izquierdo
+    if (id % size != 0){
+        adyacentes.push(id - 1);
+    }
+
+    //adyacente derecho
+    if ((id + 1) % size != 0){
+        adyacentes.push(id + 1);
+    }
+     
+    adyacentes.forEach(element => {
+        console.log('Adyacente: '+element);
+        
+    });
+    
+}
+
+
+
+
+
+
+
 /**
  * Iniciar el marcado de los items
  * @param {*} e 
@@ -79,6 +121,9 @@ function continuarMarcado(e){
         console.log('Marcado continuado', iniciadoMarcado);
         let hijo = e.target;
         selectItem(hijo);
+
+        //Test
+        calcularAdyacentes(parseInt(hijo.id));
     }
 
 }
