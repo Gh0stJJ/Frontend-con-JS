@@ -212,7 +212,13 @@ function gameEvents(){
                 item.removeEventListener('mouseover', continuarMarcado);
             }
             document.removeEventListener('mouseup', finalizarMarcado);
-
+            //Cambiar indices de los paneles
+            document.getElementById('juegoAcabado').style.zIndex = '2';
+            document.getElementById('juego').style.zIndex = '1';
+            //Evento de boton de reinicio
+            document.getElementById('nuevaPartida').addEventListener('click', function(){
+                location.reload();
+            });
         }
     }, 1000);
 
