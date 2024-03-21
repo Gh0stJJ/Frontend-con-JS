@@ -84,26 +84,32 @@ img{
 /*Colores para los items*/
 .rojo{
     background-color: #fd0c49;
+    transition: background-color 0.4s;
 }
 
 .azul{
     background-color: #00b0ff;
+    transition: background-color 0.4s;
 }
 
 .amarillo{
     background-color: #ffeb3b;
+    transition: background-color 0.4s;
 }
 
 .verde{
     background-color: #7ac943;
+    transition: background-color 0.4s;
 }
 
 .morado{
     background-color: #9c27b0;
+    transition: background-color 0.4s;
 }
 
 .naranja{
     background-color: #ff9800;
+    transition: background-color 0.4s;
 }
 
 #contenedorJuego{
@@ -134,7 +140,6 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3b3b3b;
     border: 1px solid #ced4da;
     border-radius: 5px 5px 0px 0px;
     width: 500px;

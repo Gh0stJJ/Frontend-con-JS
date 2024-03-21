@@ -212,6 +212,8 @@ function gameEvents(){
                 item.removeEventListener('mouseover', continuarMarcado);
             }
             document.removeEventListener('mouseup', finalizarMarcado);
+            
+            document.getElementById('juegoAcabado').classList.add('juegoAcabadoColor');
             //Cambiar indices de los paneles
             document.getElementById('juegoAcabado').style.zIndex = '2';
             document.getElementById('juego').style.zIndex = '1';
@@ -219,6 +221,7 @@ function gameEvents(){
             document.getElementById('nuevaPartida').addEventListener('click', function(){
                 location.reload();
             });
+
         }
     }, 1000);
 
