@@ -231,10 +231,6 @@ function gameEvents(){
 ** MAIN
 */
 
-
-
-
-
 // Get the user data
 getuserData();
 //Guardamos el historial de usuario en el localStorage
